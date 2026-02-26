@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Mobile-native AI agent app (Flutter + Go). Adapts PicoClaw's Go agent engine inside a native app, registering phone OS capabilities as callable tools in the agent loop. An LLM that can read and act on your actual life data.
+Mobile-native AI agent app (Flutter + Go). Wraps a Go agent engine inside a native app, registering phone OS capabilities as callable tools in the agent loop. An LLM that can read and act on your actual life data.
 
 **Android first.** iOS later. The product is Ferri, the library is libferri.so.
 
@@ -22,20 +22,11 @@ Cloud LLMs (user's API keys)
 
 Tool dispatch: Go agent calls tool → Go callback → Dart via NativePort → platform channel → native API → result returns Dart → Go → agent continues. Round-trip ~5-50ms.
 
-## SDK Paths
-
-```bash
-ANDROID_HOME=$HOME/Library/Android/sdk
-NDK_HOME=$HOME/Library/Android/sdk/ndk/28.2.13676358
-ADB=$HOME/Library/Android/sdk/platform-tools/adb
-EMULATOR=$HOME/Library/Android/sdk/emulator/emulator
-```
-
 ## Commands
 
 ```bash
-# Build Go engine
-NDK_HOME=$HOME/Library/Android/sdk/ndk/28.2.13676358 make build-engine-android-arm64
+# Build Go engine (set NDK_HOME to your NDK path)
+NDK_HOME=$ANDROID_HOME/ndk/<version> make build-engine-android-arm64
 
 # Build targets
 make build-engine-android-arm64
@@ -45,48 +36,26 @@ make test
 make lint
 ```
 
-### Physical Device (Realme RMX5313, WiFi ADB)
+### ADB (Physical Device or Emulator)
 
 ```bash
-# Connect (already paired — port may change on phone restart)
-$ADB connect 192.168.18.199:<port>
-
-# Run app on phone
-flutter run -d 192.168.18.199:45923
-
 # Clear app data
-$ADB -s 192.168.18.199:45923 shell pm clear com.ferri.ferri
+adb shell pm clear com.ferri.ferri
 
 # Logs
-$ADB -s 192.168.18.199:45923 logcat -s ferri:* *:S             # Go engine
-$ADB -s 192.168.18.199:45923 logcat -s flutter:*             # Flutter
-$ADB -s 192.168.18.199:45923 logcat --pid=$($ADB -s 192.168.18.199:45923 shell pidof com.ferri.ferri)  # All app
+adb logcat -s ferri:* *:S                                    # Go engine
+adb logcat -s flutter:*                                      # Flutter
+adb logcat --pid=$(adb shell pidof com.ferri.ferri)          # All app
 
 # Install release APK
-$ADB -s 192.168.18.199:45923 install build/app/outputs/flutter-apk/app-release.apk
-```
-
-### Emulator (ferri_test)
-
-```bash
-# Start/stop emulator + app
-./scripts/start.sh
-./scripts/stop.sh
-
-# Clear app data
-$ADB -s emulator-5554 shell pm clear com.ferri.ferri
-
-# Logs
-$ADB -s emulator-5554 logcat -s ferri:* *:S             # Go engine
-$ADB -s emulator-5554 logcat -s flutter:*             # Flutter
-$ADB -s emulator-5554 logcat --pid=$(adb shell pidof com.ferri.ferri)  # All app
+adb install build/app/outputs/flutter-apk/app-release.apk
 ```
 
 ```
 Package: com.ferri.ferri
 ```
 
-Prerequisites: Flutter 3.22+, Go 1.22+, Android SDK API 24+, NDK 28.2.13676358.
+Prerequisites: Flutter 3.22+, Go 1.22+, Android SDK API 24+, NDK 28.x.
 
 ## Design Principles
 
@@ -101,8 +70,8 @@ Prerequisites: Flutter 3.22+, Go 1.22+, Android SDK API 24+, NDK 28.2.13676358.
 
 - **Minimal code.** Achieve functionality with as little code as possible. Re-use existing modules, helpers, and patterns before writing new ones.
 - **Don't break working features.** Before modifying any file, understand what it does and trace cascading effects. Never introduce regressions.
-- **Explicit approval required.** Before implementing any feature or fix, present: (1) what will be done, (2) which files are affected, (3) what cascading effects it could have. Wait for approval.
-- **Go engine changes need separate approval.** Any modifications to `engine/` require explicit sign-off.
+- **Understand before changing.** Before implementing any feature or fix, identify: (1) what will be done, (2) which files are affected, (3) what cascading effects it could have.
+- **Go engine changes are sensitive.** Modifications to `engine/` should be reviewed carefully — they affect the core agent loop and FFI bridge.
 
 ## Code Conventions
 
@@ -125,7 +94,6 @@ Prerequisites: Flutter 3.22+, Go 1.22+, Android SDK API 24+, NDK 28.2.13676358.
 
 ## Reference
 
-- `docs/plans/` — Design docs and implementation plans
 - `docs/ferri_features_list.md` — Cross-platform feature tracking
-- `docs/ferri-capabilities.md` — Native capabilities reference
-- `docs/ferri-architecture.md` — Architecture deep-dive
+- `docs/CAPABILITIES.md` — Native capabilities reference
+- `docs/ARCHITECTURE.md` — Architecture deep-dive
