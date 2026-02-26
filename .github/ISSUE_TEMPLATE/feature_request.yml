@@ -1,0 +1,70 @@
+name: Feature Request
+description: Suggest a new feature or capability for Ferri
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for Ferri? We'd love to hear it. Please describe what you'd like and why.
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: What problem does this solve? What would you use it for?
+      placeholder: "I want to ask Ferri to control my smart home lights so I can manage them hands-free."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How do you think this should work?
+      placeholder: |
+        Add a "Smart Home" capability with tools like:
+        - `home_list_devices` — list connected devices
+        - `home_set_state` — turn on/off, set brightness, etc.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - New capability / tools
+        - New channel integration
+        - UI improvement
+        - Engine enhancement
+        - Build / developer experience
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Android
+        - iOS
+        - Both
+        - Platform-independent
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered other approaches?
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to submit a PR for this feature

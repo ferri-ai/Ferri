@@ -1,0 +1,29 @@
+Ferri
+Copyright 2026 Ferri contributors
+
+This product includes software developed by the Ferri project
+(https://github.com/ferri-ai/ferri).
+
+== Dual License ==
+
+This repository uses two open-source licenses:
+
+  engine/         MIT License       (see engine/LICENSE)
+  everything else Apache License 2.0 (see LICENSE)
+
+The Go engine (libferri) in the engine/ directory is derived from PicoClaw
+(https://github.com/sipeed/picoclaw) and is licensed under the MIT License
+to preserve compatibility with the original project.
+
+The mobile application code (Flutter/Dart, Kotlin, Swift, assets, and all
+other files outside engine/) is licensed under the Apache License, Version 2.0.
+
+== Third-Party Attribution ==
+
+PicoClaw — https://github.com/sipeed/picoclaw
+  License: MIT
+  The Go agent engine in engine/ is adapted from PicoClaw.
+
+nanobot — https://github.com/HKUDS/nanobot
+  License: MIT
+  PicoClaw (and by extension, the Ferri engine) was inspired by and based on nanobot.

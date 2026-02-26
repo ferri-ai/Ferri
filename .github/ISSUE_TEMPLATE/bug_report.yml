@@ -1,0 +1,86 @@
+name: Bug Report
+description: Report a bug in Ferri
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the sections below so we can reproduce and fix it.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen?
+      placeholder: "When I asked Ferri to read my calendar, it returned an error instead of events."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this?
+      placeholder: |
+        1. Enable Calendar capability
+        2. Send message "What's on my calendar today?"
+        3. See error in chat
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of Ferri is affected?
+      options:
+        - Chat / Agent
+        - Capability (specify in description)
+        - Channels (Telegram/Discord/Slack)
+        - Automation / Cron
+        - Geofence
+        - Settings / UI
+        - Go Engine
+        - Build / Setup
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: What device are you using?
+      placeholder: "Pixel 7, Android 14 / Emulator API 34"
+    validations:
+      required: true
+
+  - type: input
+    id: provider
+    attributes:
+      label: LLM Provider
+      description: Which LLM provider and model?
+      placeholder: "OpenRouter / Claude 3.5 Sonnet"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: |
+        Paste any relevant logcat output. Use:
+        `adb logcat -s ferri:* *:S` for engine logs
+        `adb logcat -s flutter:*` for Flutter logs
+      render: shell
+
+  - type: dropdown
+    id: build
+    attributes:
+      label: Build Type
+      options:
+        - Built from source (main branch)
+        - Built from source (other branch)
+        - Release APK
+      default: 0
+    validations:
+      required: true

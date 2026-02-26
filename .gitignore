@@ -1,0 +1,62 @@
+# Reference codebases (cloned for study, not part of Ferri)
+ref/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Flutter / Dart
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+*.g.dart
+*.freezed.dart
+
+# Android
+**/android/local.properties
+**/android/.gradle/
+**/android/.kotlin/
+**/android/key.properties
+*.jks
+*.keystore
+
+# iOS
+**/ios/.symlinks/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Pods/
+**/ios/.symlinks/
+
+# Go build artifacts
+*.so
+*.dylib
+*.a
+**/jniLibs/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Claude Code
+.claude/
+
+# Local scripts (dev convenience, not part of the codebase)
+scripts/
+
+# Environment / secrets
+.env
+*.p8
+*.p12
+*.cer
+*.pem
+
+# Firebase / GCP service configs
+google-services.json
+GoogleService-Info.plist
+**/service-account*.json
+**/credentials.json

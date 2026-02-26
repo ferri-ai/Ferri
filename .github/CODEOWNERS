@@ -1,0 +1,18 @@
+# Ferri Code Owners
+# These owners will be automatically requested for review on PRs.
+
+# Default owners for everything
+* @ferri-ai
+
+# Go engine — requires explicit maintainer sign-off
+/engine/ @ferri-ai
+
+# Build system
+/Makefile @ferri-ai
+/scripts/ @ferri-ai
+
+# Native Android channels
+/android/app/src/main/kotlin/com/ferri/ferri/channels/ @ferri-ai
+
+# FFI bridge
+/lib/engine/ @ferri-ai

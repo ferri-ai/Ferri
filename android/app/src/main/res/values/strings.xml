@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_description">Ferri uses this service to read screen content and interact with apps on your behalf. Only enabled capabilities are used.</string>
+</resources>

@@ -1,0 +1,109 @@
+{
+  "version": "2026.02.21",
+  "providers": {
+    "openrouter": {
+      "display_name": "OpenRouter",
+      "tagline": "300+ models, one API key",
+      "key_url": "https://openrouter.ai/keys",
+      "key_prefix": "sk-or-",
+      "base_url": "https://openrouter.ai/api/v1",
+      "recommended_model": "anthropic/claude-sonnet-4.5",
+      "requires_key": true,
+      "models": [
+        { "id": "anthropic/claude-sonnet-4.5", "label": "Claude Sonnet 4.5" },
+        { "id": "anthropic/claude-haiku-4.5", "label": "Claude Haiku 4.5" },
+        { "id": "openai/gpt-4o-mini", "label": "GPT-4o Mini" },
+        { "id": "google/gemini-2.5-flash", "label": "Gemini 2.5 Flash" },
+        { "id": "deepseek/deepseek-chat", "label": "DeepSeek V3.2" },
+        { "id": "qwen/qwen3-32b", "label": "Qwen 3 32B" },
+        { "id": "arcee-ai/trinity-large-preview:free", "label": "Arcee Trinity Large (Free)" },
+        { "id": "nvidia/nemotron-3-nano-30b-a3b:free", "label": "Nemotron 3 Nano 30B (Free)" },
+        { "id": "openai/gpt-oss-120b:free", "label": "GPT-OSS 120B (Free)" }
+      ]
+    },
+    "anthropic": {
+      "display_name": "Anthropic",
+      "tagline": "Claude models",
+      "key_url": "https://console.anthropic.com/settings/keys",
+      "key_prefix": "sk-ant-",
+      "base_url": "https://api.anthropic.com/v1",
+      "recommended_model": "claude-sonnet-4-5-20250929",
+      "requires_key": true,
+      "models": [
+        { "id": "claude-sonnet-4-5-20250929", "label": "Claude Sonnet 4.5" },
+        { "id": "claude-haiku-4-5-20251001", "label": "Claude Haiku 4.5" }
+      ]
+    },
+    "openai": {
+      "display_name": "OpenAI",
+      "tagline": "GPT models",
+      "key_url": "https://platform.openai.com/api-keys",
+      "key_prefix": "sk-",
+      "base_url": "https://api.openai.com/v1",
+      "recommended_model": "gpt-4o-mini",
+      "requires_key": true,
+      "models": [
+        { "id": "gpt-4o", "label": "GPT-4o" },
+        { "id": "gpt-4o-mini", "label": "GPT-4o Mini" },
+        { "id": "gpt-4.1", "label": "GPT-4.1" },
+        { "id": "gpt-4.1-mini", "label": "GPT-4.1 Mini" }
+      ]
+    },
+    "groq": {
+      "display_name": "Groq",
+      "tagline": "Ultra-fast inference",
+      "key_url": "https://console.groq.com/keys",
+      "key_prefix": "gsk_",
+      "base_url": "https://api.groq.com/openai/v1",
+      "recommended_model": "llama-3.3-70b-versatile",
+      "requires_key": true,
+      "models": [
+        { "id": "llama-3.3-70b-versatile", "label": "Llama 3.3 70B Versatile" },
+        { "id": "openai/gpt-oss-120b", "label": "GPT-OSS 120B" },
+        { "id": "qwen-qwq-32b", "label": "Qwen QwQ 32B" },
+        { "id": "llama-3.1-8b-instant", "label": "Llama 3.1 8B Instant" }
+      ]
+    },
+    "deepseek": {
+      "display_name": "DeepSeek",
+      "tagline": "Budget reasoning models",
+      "key_url": "https://platform.deepseek.com/api_keys",
+      "key_prefix": "sk-",
+      "base_url": "https://api.deepseek.com/v1",
+      "recommended_model": "deepseek-chat",
+      "requires_key": true,
+      "models": [
+        { "id": "deepseek-chat", "label": "DeepSeek V3.2" },
+        { "id": "deepseek-reasoner", "label": "DeepSeek R1 (Reasoner)" }
+      ]
+    },
+    "sambanova": {
+      "display_name": "SambaNova",
+      "tagline": "Fastest open-source inference",
+      "key_url": "https://cloud.sambanova.ai/apis",
+      "key_prefix": "snova_",
+      "base_url": "https://api.sambanova.ai/v1",
+      "recommended_model": "Meta-Llama-3.3-70B-Instruct",
+      "requires_key": true,
+      "models": [
+        { "id": "Meta-Llama-3.3-70B-Instruct", "label": "Llama 3.3 70B" },
+        { "id": "DeepSeek-V3.1", "label": "DeepSeek V3.1" },
+        { "id": "Llama-4-Maverick-17B-128E-Instruct", "label": "Llama 4 Maverick" }
+      ]
+    },
+    "gemini": {
+      "display_name": "Gemini",
+      "tagline": "Google AI models",
+      "key_url": "https://aistudio.google.com/apikey",
+      "key_prefix": "AI",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "recommended_model": "gemini-2.5-flash",
+      "requires_key": true,
+      "models": [
+        { "id": "gemini-2.5-flash", "label": "Gemini 2.5 Flash" },
+        { "id": "gemini-2.5-flash-lite", "label": "Gemini 2.5 Flash Lite" },
+        { "id": "gemini-2.5-pro", "label": "Gemini 2.5 Pro" }
+      ]
+    }
+  }
+}
